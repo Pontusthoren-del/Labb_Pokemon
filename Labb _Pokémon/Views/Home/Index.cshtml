@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Pokédex";
+}
+
+<div class="hero">
+    <div class="hero-pokeball"></div>
+
+    <h1 class="hero-title">Din digitala Pokédex</h1>
+    <p class="hero-subtitle">
+        Utforska slumpade Pokémon, sök på namn eller typ, och se detaljerade kort med stats, typer, längd och vikt.
+    </p>
+
+    <div class="hero-actions">
+        <a class="btn-poke" asp-controller="Pokemon" asp-action="Index">Utforska Pokémon</a>
+        <a class="btn-poke-outline" asp-controller="Pokemon" asp-action="Search">Sök en Pokémon</a>
+    </div>
+
+    <div class="hero-strip">
+        <span class="type-badge" data-type="fire">fire</span>
+        <span class="type-badge" data-type="water">water</span>
+        <span class="type-badge" data-type="grass">grass</span>
+        <span class="type-badge" data-type="electric">electric</span>
+        <span class="type-badge" data-type="psychic">psychic</span>
+        <span class="type-badge" data-type="dragon">dragon</span>
+    </div>
+</div>

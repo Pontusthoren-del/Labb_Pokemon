@@ -1,0 +1,49 @@
+﻿@model Labb__Pokémon.Models.PokemonViewModel
+
+@{
+    ViewData["Title"] = Model.Name;
+    var primaryType = Model.Types.FirstOrDefault() ?? "normal";
+}
+
+<div class="card-frame" data-type="@primaryType">
+    <div class="card-inner">
+        <div class="card-name">@Model.Name</div>
+
+        <div class="card-screen">
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl" alt="@Model.Name" />
+            }
+        </div>
+
+        <div class="card-badges">
+            @foreach (var type in Model.Types)
+            {
+                <span class="type-badge" data-type="@type">@type</span>
+            }
+        </div>
+
+        <div class="card-meta">
+            <div><strong>@Model.Height.ToString("0.#") m</strong>Längd</div>
+            <div><strong>@Model.Weight.ToString("0.#") kg</strong>Vikt</div>
+        </div>
+
+        <div>
+            @foreach (var stat in Model.Stats)
+            {
+                var pct = Math.Min(100, (stat.Value / 150.0) * 100);
+                <div class="stat-row">
+                    <div class="stat-label">
+                        <span>@stat.Key.Replace("-", " ")</span>
+                        <span>@stat.Value</span>
+                    </div>
+                    <div class="stat-bar-track">
+                        <div class="stat-bar-fill" style="width:@pct.ToString("0")%"></div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<a class= class="btn btn-sm btn-outline-primary" asp-controller="Pokemon" asp-action="Index">← Tillbaka till listan</a>

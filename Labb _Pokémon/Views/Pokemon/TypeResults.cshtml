@@ -1,0 +1,37 @@
+﻿@model List<Labb__Pokémon.Models.PokemonViewModel>
+
+@{
+    ViewData["Title"] = $"Typ: {ViewBag.SearchedType}";
+    string searchedType = ViewBag.SearchedType;
+}
+
+
+@if (Model != null && Model.Any())
+{
+    <h1>
+        Pokémon av typen
+        <span class="type-badge" data-type="@searchedType" style="font-size:1.4rem; padding:6px 20px;">@searchedType</span>
+    </h1>
+    <div class="poke-grid">
+        @foreach (var pokemon in Model)
+        {
+            <a class="poke-tile" asp-controller="Pokemon" asp-action="Details" asp-route-name="@pokemon.Name">
+                @if (!string.IsNullOrEmpty(pokemon.ImageUrl))
+                {
+                    <img src="@pokemon.ImageUrl" alt="@pokemon.Name" />
+                }
+                <p>@pokemon.Name</p>
+            </a>
+        }
+    </div>
+}
+else
+{
+    <div class="notfound-panel">
+        <div class="notfound-icon"></div>
+        <h1>Inga träffar</h1>
+        <p>Kunde inte hitta någon Pokémon av typen "@searchedType". Kontrollera stavningen (t.ex. "water", "fire", "grass").</p>
+    </div>
+}
+
+<p><a class="link-poke" asp-controller="Pokemon" asp-action="Search">← Sök igen</a></p>

@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Hittades inte";
+}
+
+<div class="notfound-panel">
+    <div class="notfound-icon"></div>
+    <h1>Den flydde!</h1>
+    <p>@ViewBag.ErrorMessage — kanske gömmer den sig i gräset, eller så är namnet felstavat.</p>
+    <a class="btn-poke" asp-controller="Pokemon" asp-action="Search">Försök igen</a>
+</div>

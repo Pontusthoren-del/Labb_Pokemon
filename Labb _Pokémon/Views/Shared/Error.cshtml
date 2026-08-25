@@ -1,0 +1,20 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Fel";
+    var customMessage = Context.Items["Message"] as string;
+}
+
+<div class="error-panel">
+    <h1>Pokédexen svarar inte</h1>
+    <h2>@(customMessage ?? "Något gick snett i sökningen efter data. Signalen till Pokédexen bröts.")</h2>
+
+    @if (Model.ShowRequestId)
+    {
+        <p>
+            <strong>Felkod:</strong> <code>@Model.RequestId</code>
+        </p>
+    }
+
+
+    <p><a class="btn btn-sm btn-outline-primary" asp-controller="Pokemon" asp-action="Index">← Tillbaka till Pokédexen</a></p>
+</div>

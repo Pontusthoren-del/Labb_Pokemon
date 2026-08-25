@@ -1,0 +1,36 @@
+﻿@model List<Labb__Pokémon.Models.PokemonViewModel>
+
+@{
+    ViewData["Title"] = "Pokémon";
+}
+
+<h1>Pokémon</h1>
+
+<p><a class="link-poke" asp-controller="Pokemon" asp-action="Search">Sök efter en Pokémon →</a></p>
+<hr />
+
+<h2>Utforska slumpade Pokémon</h2>
+
+@if (Model != null && Model.Any())
+{
+    <div class="poke-grid">
+        @foreach (var pokemon in Model)
+        {
+            <a class="poke-tile" asp-controller="Pokemon" asp-action="Details" asp-route-name="@pokemon.Name">
+                @if (!string.IsNullOrEmpty(pokemon.ImageUrl))
+                {
+                    <img src="@pokemon.ImageUrl" alt="@pokemon.Name" />
+                }
+                <p>@pokemon.Name</p>
+            </a>
+        }
+    </div>
+
+    <form asp-controller="Pokemon" asp-action="Index" method="get">
+        <button type="submit" class="btn-poke">Visa 20 nya</button>
+    </form>
+}
+else
+{
+    <p>Kunde inte hämta listan just nu. Försök igen senare.</p>
+}
