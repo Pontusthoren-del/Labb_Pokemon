@@ -5,17 +5,18 @@
 <h1>Sök efter en Pokémon</h1>
 
 <div class="search-panel">
+    <h2 class="search-panel-heading">Namn</h2>
     <form asp-controller="Pokemon" asp-action="Search" method="get">
         <input type="text" name="search" placeholder="T.ex. pikachu" />
-        <button type="submit" class="btn-poke">Sök</button>
+        <button type="submit" class="btn-poke-panel">Sök</button>
     </form>
 </div>
 
 <div class="search-panel">
-    <h2 style="font-size:1.1rem; margin-top:0;">Eller sök på typ</h2>
+    <h2 class="search-panel-heading">Typ</h2>
     <form asp-controller="Pokemon" asp-action="SearchByType" method="get">
         <input type="text" name="type" placeholder="T.ex. water, fire, electric" />
-        <button type="submit" class="btn-poke">Sök typ</button>
+        <button type="submit" class="btn-poke-panel">Sök typ</button>
     </form>
 </div>
 
