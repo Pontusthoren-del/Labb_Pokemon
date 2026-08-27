@@ -146,13 +146,14 @@ h1, h2, h3 {
 .btn-poke {
     background: var(--red);
     color: #fff;
-    border: none;
+    border: solid;
     border-radius: 999px;
     padding: 10px 24px;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     cursor: pointer;
     transition: opacity 0.15s ease;
+    text-decoration: none;
 }
 
     .btn-poke:hover {
@@ -649,4 +650,55 @@ footer {
 .notfound-panel p {
     color: var(--ink-soft);
     margin-bottom: 20px;
+}
+.evolution-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+}
+
+.evolution-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--ink);
+    opacity: 0.6;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+    .evolution-step:hover {
+        opacity: 1;
+        transform: translateY(-2px);
+        color: var(--ink);
+    }
+
+    .evolution-step.current {
+        opacity: 1;
+    }
+
+    .evolution-step img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+    }
+
+    .evolution-step.current img {
+        width: 64px;
+        height: 64px;
+    }
+
+    .evolution-step p {
+        margin: 2px 0 0;
+        font-size: 0.7rem;
+        text-transform: capitalize;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+
+.evolution-arrow {
+    color: var(--ink-soft);
+    font-size: 1.2rem;
 }

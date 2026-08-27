@@ -1,0 +1,21 @@
+﻿@model List<Labb__Pokémon.Models.PokemonViewModel>
+
+@{
+    ViewData["Title"] = "Sökresultat";
+    var searchedTerm = ViewBag.SearchedTerm as string;
+}
+
+<h1>Sökresultat för "@searchedTerm"</h1>
+<p>Hittade @Model.Count träff@(Model.Count != 1 ? "ar" : "")</p>
+
+<div class="poke-grid">
+    @foreach (var pokemon in Model)
+    {
+        <a class="poke-tile" asp-controller="Pokemon" asp-action="Details" asp-route-name="@pokemon.Name">
+            <img src="@pokemon.ImageUrl" alt="@pokemon.Name" />
+            <p>@pokemon.Name</p>
+        </a>
+    }
+</div>
+
+<p><a class="btn-poke" asp-controller="Pokemon" asp-action="Search">Ny sökning</a></p>

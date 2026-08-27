@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Tillfälligt otillgänglig";
+}
+
+<div class="notfound-panel" style="border-top-color: var(--red);">
+    <div class="notfound-icon"></div>
+    <h1>Pokédexen är offline!</h1>
+    <p>@ViewBag.ErrorMessage — Professor Ek jobbar på att fixa signalen. Försök igen om en liten stund.</p>
+    <a class="btn-poke" asp-controller="Pokemon" asp-action="Search">Försök igen</a>
+</div>

@@ -6,6 +6,8 @@ namespace Labb__Pokémon.Service
     {
         Task<PokemonViewModel?> GetPokemon(string search);
         Task<List<PokemonViewModel>> GetPokemonList(int limit = 20);
-        Task<List<PokemonViewModel>> GetPokemonByType(string type, int limit = 20);
+        Task<List<PokemonViewModel>> GetPokemonByType(string type);
+        Task<List<PokemonViewModel>> SearchPokemonByName(string query);
+        Task<List<EvolutionStepViewModel>> GetEvolutionChain(string pokemonName);
     }
 }

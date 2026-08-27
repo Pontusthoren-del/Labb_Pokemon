@@ -73,4 +73,32 @@ namespace Labb__Pokémon.Models
     {
         public PokemonListEntryDto? Pokemon { get; set; }
     }
+    internal class PokemonSpeciesApiResponse
+    {
+        [JsonPropertyName("evolution_chain")]
+        public EvolutionChainRefDto? EvolutionChain { get; set; }
+    }
+
+    internal class EvolutionChainRefDto
+    {
+        public string? Url { get; set; }
+    }
+
+    internal class EvolutionChainApiResponse
+    {
+        public EvolutionNodeDto? Chain { get; set; }
+    }
+
+    internal class EvolutionNodeDto
+    {
+        public EvolutionSpeciesDto? Species { get; set; }
+
+        [JsonPropertyName("evolves_to")]
+        public List<EvolutionNodeDto>? EvolvesTo { get; set; }
+    }
+
+    internal class EvolutionSpeciesDto
+    {
+        public string? Name { get; set; }
+    }
 }

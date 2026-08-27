@@ -8,10 +8,19 @@
         public double Weight { get; set; }
         public List<string> Types { get; set; }
         public Dictionary<string, int> Stats { get; set; }
+        public List<string> EvolutionChain { get; set; } = new List<string>();
+        public List<EvolutionStepViewModel> EvolutionSteps { get; set; } = new List<EvolutionStepViewModel>();
+
     }
 
     public class PokemonListItem
     {
         public string Name { get; set; } = "";
+    }
+    public class EvolutionStepViewModel
+    {
+        public string? Name { get; set; }
+        public string? ImageUrl { get; set; }
+        public bool IsCurrent { get; set; }
     }
 }
