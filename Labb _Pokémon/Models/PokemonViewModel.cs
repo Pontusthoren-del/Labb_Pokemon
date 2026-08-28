@@ -8,7 +8,6 @@
         public double Weight { get; set; }
         public List<string> Types { get; set; }
         public Dictionary<string, int> Stats { get; set; }
-        public List<string> EvolutionChain { get; set; } = new List<string>();
         public List<EvolutionStepViewModel> EvolutionSteps { get; set; } = new List<EvolutionStepViewModel>();
 
     }
